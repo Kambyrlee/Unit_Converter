@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from converters.feet_to_meters import FeetToMeters
+from converters.meters_to_feet import MetersToFeet
 import sys, os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -10,6 +11,8 @@ def start_conversion():
     match choice:
         case "Feet to Meters":
             FeetToMeters(root)
+        case "Meters to Feet":
+            MetersToFeet(root)
 
 root = Tk()
 root.title("Unit Converter")
@@ -28,7 +31,7 @@ conversion_box = ttk.Combobox(mainframe,
 conversion_box.grid(column=1, row=1, pady=5)
 conversion_box.current(0)
 
+# Trigger conversion
 ttk.Button(mainframe, text="Start", command=start_conversion).grid(column=1, row=2, pady=10)
 
-# FeetToMeters(root)
 root.mainloop()
